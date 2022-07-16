@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/txttitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registro De Usuario"
+            android:textSize="26sp"
+            android:textColor="@color/white"
+            android:padding="16dp"
+            android:layout_margin="10dp"
+            android:background="@color/azul" />
+
+        <ImageView
+            android:id="@+id/imguser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/asd"
+            android:layout_below="@+id/txttitulo"/>
+
+        <TextView
+            android:id="@+id/lb_nombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre:"
+            android:textSize="20sp"
+            android:textColor="@color/azul"
+            android:layout_below="@+id/imguser"
+            />
+
+
+        <EditText
+            android:id="@+id/txtnombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre de usuario"
+            android:inputType="textCapWords"
+            android:layout_below="@+id/lb_nombre"/>
+
+        <TextView
+            android:id="@+id/lb_clave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Clave:"
+            android:textSize="20sp"
+            android:textColor="@color/azul"
+            android:layout_below="@+id/txtnombre"/>
+
+        <EditText
+            android:id="@+id/txtclave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Digite su clave(5 digitos)"
+            android:inputType="textPassword"
+            android:layout_below="@+id/lb_clave"
+            />
+
+        <TextView
+            android:id="@+id/lb_rclave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Repita su Clave:"
+            android:textSize="20sp"
+            android:textColor="@color/azul"
+            android:layout_below="@id/txtclave"/>
+
+        <EditText
+            android:id="@+id/txtclave2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Debe ser la misma clave"
+            android:inputType="textPassword"
+            android:layout_below="@id/lb_rclave"/>
+
+        <Button
+            android:id="@+id/btn_registrar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registrar"
+            android:layout_below="@id/txtclave2"
+
+
+            />
+
+        <TextView
+            android:id="@+id/txt_confirmacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="@color/rojo"
+            android:layout_below="@id/btn_registrar"
+
+            />
+
+
+    </RelativeLayout>
+</layout>
