@@ -35,6 +35,23 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <TextView
+            android:id="@+id/txtcorreo"
+            android:text="@{users.correo}"
+            android:layout_width="408dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/rojo"
+            android:fontFamily="sans-serif-medium"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_valcontraseña" />
+
+        <TextView
             android:id="@+id/txtbienvenido"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

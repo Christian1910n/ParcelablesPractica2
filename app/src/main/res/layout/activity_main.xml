@@ -7,11 +7,15 @@
 
     </data>
 
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
-
         <TextView
             android:id="@+id/txttitulo"
             android:layout_width="match_parent"
@@ -27,9 +31,8 @@
             android:id="@+id/imguser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:src="@drawable/asd"
-            android:layout_below="@+id/txttitulo"/>
+            android:layout_below="@+id/txttitulo"
+            android:src="@drawable/asd" />
 
         <TextView
             android:id="@+id/lb_nombre"
@@ -57,7 +60,7 @@
             android:text="Clave:"
             android:textSize="20sp"
             android:textColor="@color/azul"
-            android:layout_below="@+id/txtnombre"/>
+            android:layout_below="@+id/txtcorreo2"/>
 
         <EditText
             android:id="@+id/txtclave"
@@ -90,10 +93,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Registrar"
-            android:layout_below="@id/txtclave2"
+            android:layout_below="@id/txtrol"
 
 
             />
+
 
         <TextView
             android:id="@+id/txt_confirmacion"
@@ -105,6 +109,65 @@
 
             />
 
+        <TextView
+            android:id="@+id/lb_rol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rol: "
+            android:textSize="20sp"
+            android:layout_below="@id/txtclave2"
+            android:textColor="@color/azul"
+            />
+
+        <EditText
+        android:id="@+id/txtrol"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Rol: Admin o Invitado"
+        android:layout_below="@id/lb_rol"/>
+
+        <TextView
+            android:id="@+id/lb_correo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Correo Electronico: "
+            android:textSize="20sp"
+            android:layout_below="@id/txtnombre"
+            android:textColor="@color/azul"
+            />
+
+        <EditText
+            android:id="@+id/txtcorreo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="12345678@gmail.com"
+            android:inputType="textEmailAddress"
+            android:layout_below="@id/lb_correo"/>
+
+        <TextView
+            android:id="@+id/lb_correo2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Correo Electronico: "
+            android:textSize="20sp"
+            android:layout_below="@id/txtcorreo"
+            android:textColor="@color/azul"
+            />
+
+        <EditText
+            android:id="@+id/txtcorreo2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="12345678@gmail.com"
+            android:inputType="textEmailAddress"
+            android:layout_below="@id/lb_correo2"/>
+
+
+
+
+
 
     </RelativeLayout>
+    </ScrollView>
+
 </layout>

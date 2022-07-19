@@ -4,28 +4,31 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Usuarios implements Parcelable {
-    private String nick;
+    private String rol;
     private String usuario;
     private String clave;
+    private String correo;
 
-
-    public Usuarios(String nick, String usuario, String clave) {
-        this.nick = nick;
+    public Usuarios(String rol, String usuario, String clave, String correo) {
+        this.rol = rol;
         this.usuario = usuario;
         this.clave = clave;
+        this.correo = correo;
     }
 
     protected Usuarios(Parcel in) {
-        nick = in.readString();
+        rol = in.readString();
         usuario = in.readString();
         clave = in.readString();
+        correo = in.readString();
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(nick);
+        dest.writeString(rol);
         dest.writeString(usuario);
         dest.writeString(clave);
+        dest.writeString(correo);
     }
 
     @Override
@@ -45,12 +48,12 @@ public class Usuarios implements Parcelable {
         }
     };
 
-    public String getNick() {
-        return nick;
+    public String getRol() {
+        return rol;
     }
 
-    public void setNick(String nick) {
-        this.nick = nick;
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
     public String getUsuario() {
@@ -67,5 +70,13 @@ public class Usuarios implements Parcelable {
 
     public void setClave(String clave) {
         this.clave = clave;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 }
