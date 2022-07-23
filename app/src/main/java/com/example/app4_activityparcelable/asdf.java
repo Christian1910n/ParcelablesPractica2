@@ -3,6 +3,7 @@ package com.example.app4_activityparcelable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 
@@ -12,6 +13,8 @@ import com.example.app4_activityparcelable.databinding.ActivityDetalleBinding;
 public class asdf extends AppCompatActivity {
 
     public static final String users_key ="usuarios";
+    public static final String BITMAP_KEY = "bitmap";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +42,11 @@ public class asdf extends AppCompatActivity {
         }else{
             binding.rtbValoracion.setRating(1);
             binding.txtValcontraseA.setText("La clave de seguridad se considera insegura");
+        }
+
+        Bitmap bitmap =extras.getParcelable(BITMAP_KEY);
+        if(bitmap!=null){
+            binding.imageView.setImageBitmap(bitmap);
         }
 
     }

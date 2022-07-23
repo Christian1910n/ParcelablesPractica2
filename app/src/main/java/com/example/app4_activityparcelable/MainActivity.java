@@ -1,9 +1,15 @@
 package com.example.app4_activityparcelable;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 
 import com.example.app4_activityparcelable.databinding.ActivityMainBinding;
@@ -12,14 +18,19 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
-
+    ActivityMainBinding binding;
+    Bitmap bitmap;
+    ActivityResultLauncher<Intent> activitResultLauncher;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
+        activitylauncher();
+        binding.imguser.setOnClickListener(v -> {
+            abrircamara();
+        });
         binding.btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,8 +71,32 @@ public class MainActivity extends AppCompatActivity {
         Usuarios sitio = new Usuarios(rol,user,clave,correo);
 
         intent.putExtra(asdf.users_key,sitio);
+        intent.putExtra(asdf.BITMAP_KEY, bitmap);
         startActivity(intent);
     }
+
+    private void abrircamara(){
+        Intent camaraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        //startActivity(camaraIntent);
+        //startActivityForResult(camaraIntent, 1000);
+        activitResultLauncher.launch(camaraIntent);
+    }
+
+    public void activitylauncher(){
+        activitResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+            @Override
+            public void onActivityResult(ActivityResult result) {
+                if (result.getResultCode()==RESULT_OK){
+                    if(result.getData() != null){
+                        bitmap=result.getData().getExtras().getParcelable("data");
+                        binding.imguser.setImageBitmap(bitmap);
+                    }
+                }
+            }
+        });
+    }
+
+
 
 
 }
